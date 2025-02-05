@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Marquee from "react-fast-marquee";
 
 const MarqueeSection = () => {
@@ -15,9 +15,24 @@ const MarqueeSection = () => {
     "Spotify",
   ];
 
+  const [isPaused, setIsPaused] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsPaused(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsPaused(false);
+  };
+
   return (
     <div className="py-10 bg-blue-950 mb-10">
-      <Marquee speed={50} gradient={false} className="overflow-hidden">
+      <Marquee
+        speed={50}
+        gradient={false}
+        className="overflow-hidden"
+        pauseOnHover={!isPaused}
+      >
         {companies.map((company, index) => (
           <div
             key={index}
