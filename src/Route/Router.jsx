@@ -11,6 +11,11 @@ import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import Cart from "../Pages/Home/Cart/Cart";
 import PaymentPage from "../Pages/Home/PaymentPage/PaymentPage";
 import Page404 from "../Pages/page404/Page404";
+import UserDashboard from "../Pages/Dashboard/UserDashboard/UserDashboard";
+import UserProfile from "../Pages/Dashboard/UserDashboard/UserProfile";
+import EditProfile from "../Pages/Dashboard/UserDashboard/EditProfile";
+import VideoPlayer from "../Pages/Home/VideoPlayer/VideoPlayer";
+import MyProgress from "../Pages/Dashboard/UserDashboard/MyProgress";
 
   const router = createBrowserRouter([
     {
@@ -50,6 +55,30 @@ import Page404 from "../Pages/page404/Page404";
           element:<PrivetRoute>
             <PaymentPage></PaymentPage>
           </PrivetRoute>
+        },
+        {
+          path:'/videoPlayer',
+          element:<VideoPlayer></VideoPlayer>
+        },
+        {
+          path:'UserDashboard',
+          element:<PrivetRoute>
+            <UserDashboard></UserDashboard>
+          </PrivetRoute>,
+          children:[
+            {
+              path:'userProfile',
+              element:<UserProfile></UserProfile>
+            },
+            {
+              path:'edit-profile',
+              element:<EditProfile></EditProfile>
+            },
+            {
+              path:'progress',
+              element:<MyProgress></MyProgress>
+            }
+          ]
         }
 
       ]

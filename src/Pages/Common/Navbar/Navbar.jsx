@@ -103,6 +103,11 @@ const Navbar = () => {
                 Dashboard
               </NavLink>
             </li>
+            <li>
+            <NavLink className="text-[17px] font-medium" to="/videoPlayer">
+                VideoPlayer
+              </NavLink>
+            </li>
           </ul>
         </div>
         <div className="flex gap-5 items-center">
@@ -111,7 +116,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal items-center px-1">
           <li>
             <NavLink className="text-[17px] font-medium" to="/">
               Home
@@ -123,8 +128,13 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink className="text-[17px] font-medium" to="/dashboard">
+            <NavLink className="text-[17px] font-medium" to="/UserDashboard">
               Dashboard
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="text-[17px] font-medium" to="/videoPlayer">
+              VideoPlayer
             </NavLink>
           </li>
         </ul>
@@ -144,7 +154,9 @@ const Navbar = () => {
         <div>
           {user ? (
             <>
-              <span className="text-gray-700 font-normal mr-3">{user.displayName}</span>
+              <span className="text-gray-700 font-normal mr-3">
+                {user.displayName}
+              </span>
               <button className="btn" onClick={handelLogOut}>
                 Log Out
               </button>
