@@ -45,7 +45,7 @@ const Register = () => {
                         fetch('http://localhost:5000/registerUser', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ email, userName: name,photoUrl,userRole:'' })
+                            body: JSON.stringify({ email, userName: name,photoUrl,userRole:'user' })
                         })
                         .then(res => res.json())
                         .then(data => console.log('User stored:', data))

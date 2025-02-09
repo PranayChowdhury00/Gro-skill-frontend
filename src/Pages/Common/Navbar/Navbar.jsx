@@ -9,16 +9,22 @@ import axios from "axios";
 const Navbar = () => {
   const { user, loading, signOutUser } = useContext(AuthContext);
   const [cartCount, setCartCount] = useState(0);
-  const [admin, setAdmin] = useState([]);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  // Fetch all users and find the logged-in user's role
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/user`)
-      .then((result) => setAdmin(result.data))
+      .get("http://localhost:5000/user") // ✅ Get all users
+      .then((res) => {
+        const loggedInUser = res.data.find((u) => u.email === user?.email); // ✅ Find logged-in user
+        setIsAdmin(loggedInUser?.userRole === "admin"); // ✅ Check if they are an admin
+      })
       .catch((err) => console.error(err.message));
   }, [user]);
-  const findAdmin = admin.some((a) => a.userRole === "admin");
-  // console.log(findAdmin);
-  // Fetch cart count whenever `user` changes
+
+  console.log("Admin Status:", isAdmin); // ✅ Debugging log
+
+  // Fetch cart count
   useEffect(() => {
     if (user?.email) {
       axios
@@ -26,39 +32,7 @@ const Navbar = () => {
         .then((res) => setCartCount(res.data.count))
         .catch((error) => console.error("Error fetching cart count:", error));
     }
-  }, [user]); // Fetch cart count whenever `user` changes
-
-  // Function to update cart count after adding an item
-  const updateCartCount = () => {
-    if (user?.email) {
-      axios
-        .get(`http://localhost:5000/cartCount/${user.email}`)
-        .then((res) => setCartCount(res.data.count))
-        .catch((error) => console.error("Error fetching cart count:", error));
-    }
-  };
-
-  // Function to handle adding an item to the cart
-  const addToCart = async (course) => {
-    try {
-      const response = await axios.post("http://localhost:5000/addToCart", {
-        email: user.email,
-        course,
-      });
-
-      // Call updateCartCount to get the updated cart count
-      updateCartCount();
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: `${course} has been added to your cart!`,
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    } catch (error) {
-      console.error("Error adding to cart:", error);
-    }
-  };
+  }, [user]);
 
   const handelLogOut = () => {
     signOutUser().then(() => {
@@ -69,8 +43,13 @@ const Navbar = () => {
         showConfirmButton: false,
         timer: 1500,
       });
+      setIsAdmin(false); // ✅ Reset admin state on logout
     });
   };
+
+  if (loading) {
+    return <p>Loading.....</p>;
+  }
 
   return (
     <div className="navbar bg-base-200 shadow-xl sticky top-0 z-20 px-10">
@@ -106,26 +85,22 @@ const Navbar = () => {
                 Course
               </NavLink>
             </li>
-            {findAdmin ? (
+            
+            {/*  */}
+
+            {isAdmin ? (
               <li>
-                <NavLink
-                  className="text-[17px] font-medium"
-                  to="/adminDashboard"
-                >
+                <NavLink className="text-[17px] font-medium" to="/adminDashboard">
                   Admin Dashboard
                 </NavLink>
               </li>
             ) : (
               <li>
-                <NavLink
-                  className="text-[17px] font-medium"
-                  to="/UserDashboard"
-                >
+                <NavLink className="text-[17px] font-medium" to="/UserDashboard">
                   User Dashboard
                 </NavLink>
               </li>
             )}
-
             <li>
               <NavLink className="text-[17px] font-medium" to="/videoPlayer">
                 VideoPlayer
@@ -150,7 +125,7 @@ const Navbar = () => {
               Course
             </NavLink>
           </li>
-          {findAdmin ? (
+          {isAdmin ? (
             <li>
               <NavLink className="text-[17px] font-medium" to="/adminDashboard">
                 Admin Dashboard

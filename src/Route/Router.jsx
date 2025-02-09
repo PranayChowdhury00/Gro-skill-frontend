@@ -19,7 +19,8 @@ import MyProgress from "../Pages/Dashboard/UserDashboard/MyProgress";
 import AdminDashboard from "../Pages/Dashboard/AdminDashboard/AdminDashboard";
 import AdminProfile from "../Pages/Dashboard/AdminDashboard/AdminProfile";
 import AddCourse from "../Pages/Dashboard/AdminDashboard/AddCourse";
-import AllCourses from "../Pages/Dashboard/AdminDashboard/AllCourses";
+import ManageCourses from "../Pages/Dashboard/AdminDashboard/ManageCourses ";
+import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers";
 
   const router = createBrowserRouter([
     {
@@ -100,7 +101,11 @@ import AllCourses from "../Pages/Dashboard/AdminDashboard/AllCourses";
             },
             {
               path:'allCourses',
-              element:<AllCourses></AllCourses>
+              element:<ManageCourses></ManageCourses>
+            },
+            {
+              path:'manageUsers',
+              element:<ManageUsers></ManageUsers>
             }
           ]
           

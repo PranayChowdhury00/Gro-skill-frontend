@@ -49,7 +49,7 @@ const MyProgress = () => {
           </tbody>
         </table>
       ) : (
-        <p className="text-gray-600 text-center mt-6"><span className="loading loading-spinner loading-md text-indigo-600"></span></p>
+        <p className="text-gray-600 text-center mt-6">No Progress</p>
       )}
     </div>
   );

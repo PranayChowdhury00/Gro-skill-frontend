@@ -5,7 +5,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const AllCourses = () => {
+const ManageCourses = () => {
   const [courses, setCourses] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [modalData, setModalData] = useState({
@@ -237,4 +237,4 @@ const AllCourses = () => {
   );
 };
 
-export default AllCourses;
+export default ManageCourses;

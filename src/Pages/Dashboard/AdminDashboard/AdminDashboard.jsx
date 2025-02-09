@@ -51,7 +51,19 @@ const AdminDashboard = () => {
                 }`
               }
             >
-              All Courses
+             Manage Courses
+            </NavLink>
+          </li>
+          <li className="text-lg font-medium mb-6">
+            <NavLink
+              to="manageUsers"
+              className={({ isActive }) =>
+                `block px-4 py-2 rounded-lg transition-all duration-300 ${
+                  isActive ? "bg-indigo-500 text-white" : "hover:bg-indigo-600"
+                }`
+              }
+            >
+             Manage Users
             </NavLink>
           </li>
         </ul>
