@@ -1,15 +1,17 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const Cart = () => {
+  const {user}=useContext(AuthContext);
   const [items, setItems] = useState([]);
 
   // Fetch cart items from the backend
   useEffect(() => {
     axios
-      .get("http://localhost:5000/cartItem")
+      .get(`http://localhost:5000/cartItem/${user.email}`)
       .then((result) => {
         setItems(result.data);
       })

@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-    const { loading, createNewUser, googleLogin } = useContext(AuthContext);
+    const { loading, createNewUser, googleLogin,setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
     if (loading) {
         return (
@@ -31,17 +31,26 @@ const Register = () => {
         const email = e.target.email.value;
         const photoUrl = e.target.photoUrl.value;
         const password = e.target.password.value;
-
+    
         createNewUser(email, password)
             .then((result) => {
                 const user = result.user;
-                console.log(user);
                 if (user) {
-                    // Update profile after user creation
                     updateProfile(user, {
                         displayName: name,
                         photoURL: photoUrl,
-                    }).then(() => {
+                    })
+                    .then(() => {
+                        // Store user in the database
+                        fetch('http://localhost:5000/registerUser', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email, userName: name,photoUrl,userRole:'' })
+                        })
+                        .then(res => res.json())
+                        .then(data => console.log('User stored:', data))
+                        .catch(err => console.error('Database error:', err));
+    
                         Swal.fire({
                             position: "top-end",
                             icon: "success",
@@ -49,29 +58,43 @@ const Register = () => {
                             showConfirmButton: false,
                             timer: 1500,
                         });
-                        navigate('/')
+                        navigate('/');
                     }).catch((err) => {
-                        console.error("Error updating profile:", err.message);
+                        console.error("Error updating profile:", err);
+                        setLoading(false); // Stop loading on profile update error
                     });
                 }
-                
             })
             .catch((err) => {
-                console.log(err.message);
-                Swal.fire({
-                    position: "top-end",
-                    icon: "error",
-                    title: `Error: ${err.message}`,
-                    showConfirmButton: false,
-                    timer: 1500,
+                setLoading(false); // Stop loading on registration error
+                Swal.fire({ 
+                    position: "top-end", 
+                    icon: "error", 
+                    title: `Error: ${err.message}`, 
+                    showConfirmButton: false, 
+                    timer: 1500 
                 });
             });
     };
+    
+    
 
     const handleGoogle = () => {
         googleLogin()
             .then((result) => {
                 if (result.user) {
+                    const { displayName, email } = result.user;
+    
+                    // Store Google user in the database
+                    fetch('http://localhost:5000/googleUser', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email, userName: displayName })
+                    })
+                    .then(res => res.json())
+                    .then(data => console.log('Google user stored:', data))
+                    .catch(err => console.error('Database error:', err));
+    
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
@@ -79,20 +102,14 @@ const Register = () => {
                         showConfirmButton: false,
                         timer: 1500,
                     });
-                    navigate('/')
+                    navigate('/');
                 }
             })
             .catch((err) => {
-                console.error(err.message);
-                Swal.fire({
-                    position: "top-end",
-                    icon: "error",
-                    title: `Error: ${err.message}`,
-                    showConfirmButton: false,
-                    timer: 1500,
-                });
+                Swal.fire({ position: "top-end", icon: "error", title: `Error: ${err.message}`, showConfirmButton: false, timer: 1500 });
             });
     };
+    
 
     return (
         <div className="hero bg-base-200 min-h-screen">

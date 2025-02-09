@@ -9,7 +9,15 @@ import axios from "axios";
 const Navbar = () => {
   const { user, loading, signOutUser } = useContext(AuthContext);
   const [cartCount, setCartCount] = useState(0);
-
+  const [admin, setAdmin] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/user`)
+      .then((result) => setAdmin(result.data))
+      .catch((err) => console.error(err.message));
+  }, [user]);
+  const findAdmin = admin.some((a) => a.userRole === "admin");
+  // console.log(findAdmin);
   // Fetch cart count whenever `user` changes
   useEffect(() => {
     if (user?.email) {
@@ -98,13 +106,28 @@ const Navbar = () => {
                 Course
               </NavLink>
             </li>
+            {findAdmin ? (
+              <li>
+                <NavLink
+                  className="text-[17px] font-medium"
+                  to="/adminDashboard"
+                >
+                  Admin Dashboard
+                </NavLink>
+              </li>
+            ) : (
+              <li>
+                <NavLink
+                  className="text-[17px] font-medium"
+                  to="/UserDashboard"
+                >
+                  User Dashboard
+                </NavLink>
+              </li>
+            )}
+
             <li>
-              <NavLink className="text-[17px] font-medium" to="/dashboard">
-                Dashboard
-              </NavLink>
-            </li>
-            <li>
-            <NavLink className="text-[17px] font-medium" to="/videoPlayer">
+              <NavLink className="text-[17px] font-medium" to="/videoPlayer">
                 VideoPlayer
               </NavLink>
             </li>
@@ -127,11 +150,19 @@ const Navbar = () => {
               Course
             </NavLink>
           </li>
-          <li>
-            <NavLink className="text-[17px] font-medium" to="/UserDashboard">
-              Dashboard
-            </NavLink>
-          </li>
+          {findAdmin ? (
+            <li>
+              <NavLink className="text-[17px] font-medium" to="/adminDashboard">
+                Admin Dashboard
+              </NavLink>
+            </li>
+          ) : (
+            <li>
+              <NavLink className="text-[17px] font-medium" to="/UserDashboard">
+                User Dashboard
+              </NavLink>
+            </li>
+          )}
           <li>
             <NavLink className="text-[17px] font-medium" to="/videoPlayer">
               VideoPlayer

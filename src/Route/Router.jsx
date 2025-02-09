@@ -16,6 +16,10 @@ import UserProfile from "../Pages/Dashboard/UserDashboard/UserProfile";
 import EditProfile from "../Pages/Dashboard/UserDashboard/EditProfile";
 import VideoPlayer from "../Pages/Home/VideoPlayer/VideoPlayer";
 import MyProgress from "../Pages/Dashboard/UserDashboard/MyProgress";
+import AdminDashboard from "../Pages/Dashboard/AdminDashboard/AdminDashboard";
+import AdminProfile from "../Pages/Dashboard/AdminDashboard/AdminProfile";
+import AddCourse from "../Pages/Dashboard/AdminDashboard/AddCourse";
+import AllCourses from "../Pages/Dashboard/AdminDashboard/AllCourses";
 
   const router = createBrowserRouter([
     {
@@ -79,6 +83,27 @@ import MyProgress from "../Pages/Dashboard/UserDashboard/MyProgress";
               element:<MyProgress></MyProgress>
             }
           ]
+        },
+        {
+          path:'/adminDashboard',
+          element:<PrivetRoute>
+            <AdminDashboard></AdminDashboard>
+          </PrivetRoute>,
+          children:[
+            {
+              path:'adminProfile',
+              element:<AdminProfile></AdminProfile>
+            },
+            {
+              path:'addCourse',
+              element:<AddCourse></AddCourse>
+            },
+            {
+              path:'allCourses',
+              element:<AllCourses></AllCourses>
+            }
+          ]
+          
         }
 
       ]

@@ -34,6 +34,7 @@ const Login = () => {
                 .then((result) => {
                     const user = result.user;
                     console.log(user);
+                    
                     if (user) {                    
                             Swal.fire({
                                 position: "top-end",
@@ -59,30 +60,35 @@ const Login = () => {
   
 
   const handleGoogle = () => {
-    googleLogin()
-      .then((result) => {
-        if (result.user) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "You have successfully signed up with Google",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-        navigate('/')
-      })
-      .catch((err) => {
-        console.error(err.message);
-        Swal.fire({
-          position: "top-end",
-          icon: "error",
-          title: `Error: ${err.message}`,
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      });
-  };
+          googleLogin()
+              .then((result) => {
+                  if (result.user) {
+                      const { displayName, email } = result.user;
+      
+                      // Store Google user in the database
+                      fetch('http://localhost:5000/googleUser', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify({ email, userName: displayName })
+                      })
+                      .then(res => res.json())
+                      .then(data => console.log('Google user stored:', data))
+                      .catch(err => console.error('Database error:', err));
+      
+                      Swal.fire({
+                          position: "top-end",
+                          icon: "success",
+                          title: "You have successfully signed up with Google",
+                          showConfirmButton: false,
+                          timer: 1500,
+                      });
+                      navigate('/');
+                  }
+              })
+              .catch((err) => {
+                  Swal.fire({ position: "top-end", icon: "error", title: `Error: ${err.message}`, showConfirmButton: false, timer: 1500 });
+              });
+      };
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row gap-6">
