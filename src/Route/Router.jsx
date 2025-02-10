@@ -23,6 +23,7 @@ import ManageCourses from "../Pages/Dashboard/AdminDashboard/ManageCourses ";
 import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers";
 import Instructors from "../Pages/Instructor/Instructors";
 import BecomeInstructor from "../Pages/Instructor/BecomeInstructor";
+import InstructorRequest from "../Pages/Dashboard/AdminDashboard/InstructorRequest";
 
   const router = createBrowserRouter([
     {
@@ -118,6 +119,10 @@ import BecomeInstructor from "../Pages/Instructor/BecomeInstructor";
             {
               path:'manageUsers',
               element:<ManageUsers></ManageUsers>
+            },
+            {
+              path:'instructorRequest',
+              element:<InstructorRequest></InstructorRequest>
             }
           ]
           
