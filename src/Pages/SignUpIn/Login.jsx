@@ -10,7 +10,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 
 const Login = () => {
-  const { loading, googleLogin,signInUser } = useContext(AuthContext);
+  const { loading, googleLogin,signInUser,setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
   if (loading) {
     return (
@@ -47,6 +47,7 @@ const Login = () => {
                         navigate('/')
                 })
                 .catch((err) => {
+                  setLoading(false)
                     console.log(err.message);
                     Swal.fire({
                         position: "top-end",

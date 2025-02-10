@@ -8,6 +8,7 @@ import SubsCribe from './Subscribe/SubsCribe';
 import SkilledIntroduce from './SkilledIntroduce/SkilledIntroduce';
 import AchievementsSection from './AchievementsSection/AchievementsSection ';
 import FaqSection from './FaqSection/FaqSection';
+import CommentSection from './CommentSection/CommentSection';
 
 const Home = () => {
     return (
@@ -21,6 +22,7 @@ const Home = () => {
             <SkilledIntroduce></SkilledIntroduce>
             <AchievementsSection></AchievementsSection>
             <FaqSection></FaqSection>
+            <CommentSection></CommentSection>
         </div>
     );
 };

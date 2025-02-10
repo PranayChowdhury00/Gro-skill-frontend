@@ -21,6 +21,8 @@ import AdminProfile from "../Pages/Dashboard/AdminDashboard/AdminProfile";
 import AddCourse from "../Pages/Dashboard/AdminDashboard/AddCourse";
 import ManageCourses from "../Pages/Dashboard/AdminDashboard/ManageCourses ";
 import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers";
+import Instructors from "../Pages/Instructor/Instructors";
+import BecomeInstructor from "../Pages/Instructor/BecomeInstructor";
 
   const router = createBrowserRouter([
     {
@@ -64,6 +66,16 @@ import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers";
         {
           path:'/videoPlayer',
           element:<VideoPlayer></VideoPlayer>
+        },
+        {
+          path:'/instructors',
+          element:<Instructors></Instructors>
+        },
+        {
+          path:'/becomeInstructor',
+          element:<PrivetRoute>
+            <BecomeInstructor></BecomeInstructor>
+          </PrivetRoute>
         },
         {
           path:'UserDashboard',

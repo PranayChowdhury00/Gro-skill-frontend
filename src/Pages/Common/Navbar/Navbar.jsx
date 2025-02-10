@@ -85,18 +85,24 @@ const Navbar = () => {
                 Course
               </NavLink>
             </li>
-            
+
             {/*  */}
 
             {isAdmin ? (
               <li>
-                <NavLink className="text-[17px] font-medium" to="/adminDashboard">
+                <NavLink
+                  className="text-[17px] font-medium"
+                  to="/adminDashboard"
+                >
                   Admin Dashboard
                 </NavLink>
               </li>
             ) : (
               <li>
-                <NavLink className="text-[17px] font-medium" to="/UserDashboard">
+                <NavLink
+                  className="text-[17px] font-medium"
+                  to="/UserDashboard"
+                >
                   User Dashboard
                 </NavLink>
               </li>
@@ -104,6 +110,11 @@ const Navbar = () => {
             <li>
               <NavLink className="text-[17px] font-medium" to="/videoPlayer">
                 VideoPlayer
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="text-[17px] font-medium" to="/instructors">
+                Instructors
               </NavLink>
             </li>
           </ul>
@@ -141,6 +152,11 @@ const Navbar = () => {
           <li>
             <NavLink className="text-[17px] font-medium" to="/videoPlayer">
               VideoPlayer
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="text-[17px] font-medium" to="/instructors">
+              Instructors
             </NavLink>
           </li>
         </ul>
