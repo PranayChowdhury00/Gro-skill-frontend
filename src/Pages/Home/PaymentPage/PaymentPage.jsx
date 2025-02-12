@@ -6,8 +6,8 @@ const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY)
 const PaymentPage = () => {
 
     return (
-        <div>
-            <h1>Payment Here</h1>
+        <div className='py-6'>
+            <h1 className='text-3xl text-center mt-7'>Payment Here</h1>
             <div className="">
                 <Elements stripe={stripePromise}>
                     <CheckoutForm></CheckoutForm>

@@ -3,7 +3,7 @@ import img from "../../../assets/blackMen.webp";
 const SubsCribe = () => {
   return (
     <div className="bg-indigo-700 mb-20 px-4 py-10">
-      <div className="flex flex-col md:flex-row max-w-6xl mx-auto items-center justify-between gap-10 md:gap-20">
+      <div className="flex flex-col md:flex-row max-w-4xl mx-auto items-center justify-between gap-10 md:gap-20">
         {/* Image Section */}
         <div className="relative flex justify-center items-center py-5 group w-full md:w-auto">
           <img

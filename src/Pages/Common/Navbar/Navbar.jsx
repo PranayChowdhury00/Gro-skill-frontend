@@ -52,7 +52,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar bg-base-200 shadow-xl sticky top-0 z-20 px-10">
+    <div className="navbar bg-base-200 shadow-xl sticky top-0 z-20 px-4 sm:px-6 lg:px-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -122,7 +122,7 @@ const Navbar = () => {
         </div>
         <div className="flex gap-5 items-center">
           <img className="w-14 h-14 rounded-full" src="/logo.jpg" alt="" />
-          <a className="text-xl font-semibold">Gro Skill</a>
+          <a className="text-xl font-semibold hidden md:block">Gro Skill</a>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -185,12 +185,14 @@ const Navbar = () => {
         <div>
           {user ? (
             <>
-              <span className="text-gray-700 font-normal mr-3">
+              <div className="flex items-center">
+              <span className="text-gray-700 font-normal mr-3 hidden md:block">
                 {user.displayName}
               </span>
               <button className="btn" onClick={handelLogOut}>
                 Log Out
               </button>
+              </div>
             </>
           ) : (
             <Link className="text-[18px] font-medium" to="/login">
