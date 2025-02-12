@@ -24,6 +24,10 @@ import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers";
 import Instructors from "../Pages/Instructor/Instructors";
 import BecomeInstructor from "../Pages/Instructor/BecomeInstructor";
 import InstructorRequest from "../Pages/Dashboard/AdminDashboard/InstructorRequest";
+import Transactions from "../Pages/Dashboard/AdminDashboard/Transactions";
+import MyCourses from "../Pages/Dashboard/UserDashboard/MyCourses";
+import PaymentHistory from "../Pages/Dashboard/UserDashboard/PaymentHistory";
+import ReviewForm from "../Pages/Dashboard/UserDashboard/ReviewForm";
 
   const router = createBrowserRouter([
     {
@@ -95,6 +99,18 @@ import InstructorRequest from "../Pages/Dashboard/AdminDashboard/InstructorReque
             {
               path:'progress',
               element:<MyProgress></MyProgress>
+            },
+            {
+              path:'myCourses',
+              element:<MyCourses></MyCourses>
+            },
+            {
+              path:'paymentHistory',
+              element:<PaymentHistory></PaymentHistory>
+            },
+            {
+              path:'reviewForm',
+              element:<ReviewForm></ReviewForm>
             }
           ]
         },
@@ -123,6 +139,10 @@ import InstructorRequest from "../Pages/Dashboard/AdminDashboard/InstructorReque
             {
               path:'instructorRequest',
               element:<InstructorRequest></InstructorRequest>
+            },
+            {
+              path:'transactions',
+              element:<Transactions></Transactions>
             }
           ]
           

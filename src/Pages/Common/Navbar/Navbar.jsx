@@ -87,26 +87,27 @@ const Navbar = () => {
             </li>
 
             {/*  */}
+            {user && // ✅ Only show dashboard links if user is logged in
+              (isAdmin ? (
+                <li>
+                  <NavLink
+                    className="text-[17px] font-medium"
+                    to="/adminDashboard"
+                  >
+                    Admin Dashboard
+                  </NavLink>
+                </li>
+              ) : (
+                <li>
+                  <NavLink
+                    className="text-[17px] font-medium"
+                    to="/UserDashboard"
+                  >
+                    User Dashboard
+                  </NavLink>
+                </li>
+              ))}
 
-            {isAdmin ? (
-              <li>
-                <NavLink
-                  className="text-[17px] font-medium"
-                  to="/adminDashboard"
-                >
-                  Admin Dashboard
-                </NavLink>
-              </li>
-            ) : (
-              <li>
-                <NavLink
-                  className="text-[17px] font-medium"
-                  to="/UserDashboard"
-                >
-                  User Dashboard
-                </NavLink>
-              </li>
-            )}
             <li>
               <NavLink className="text-[17px] font-medium" to="/videoPlayer">
                 VideoPlayer
@@ -136,19 +137,27 @@ const Navbar = () => {
               Course
             </NavLink>
           </li>
-          {isAdmin ? (
-            <li>
-              <NavLink className="text-[17px] font-medium" to="/adminDashboard">
-                Admin Dashboard
-              </NavLink>
-            </li>
-          ) : (
-            <li>
-              <NavLink className="text-[17px] font-medium" to="/UserDashboard">
-                User Dashboard
-              </NavLink>
-            </li>
-          )}
+          {user && // ✅ Only show dashboard links if user is logged in
+            (isAdmin ? (
+              <li>
+                <NavLink
+                  className="text-[17px] font-medium"
+                  to="/adminDashboard"
+                >
+                  Admin Dashboard
+                </NavLink>
+              </li>
+            ) : (
+              <li>
+                <NavLink
+                  className="text-[17px] font-medium"
+                  to="/UserDashboard"
+                >
+                  User Dashboard
+                </NavLink>
+              </li>
+            ))}
+
           <li>
             <NavLink className="text-[17px] font-medium" to="/videoPlayer">
               VideoPlayer

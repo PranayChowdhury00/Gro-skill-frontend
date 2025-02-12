@@ -9,9 +9,9 @@ const FaqSection = () => {
     };
 
     return (
-        <div className="max-w-7xl mx-auto mt-10 mb-10 flex">
+        <div className="max-w-7xl mx-auto mt-10 mb-10 flex flex-col lg:flex-row">
             {/* Curved Text */}
-            <div className="w-1/2 flex items-center justify-center relative">
+            <div className="lg:w-1/2 flex items-center justify-center relative">
                 <svg
                     width="400"
                     height="250"
@@ -28,19 +28,19 @@ const FaqSection = () => {
                 </svg>
 
                 {/* Egg-Shaped Image */}
-                <div className="w-[300px] h-[450px] hover:bg-yellow-400 bg-yellow-300 rounded-[50%_50%_40%_40%] overflow-hidden flex justify-center items-center">
+                <div className="lg:w-[300px] lg:h-[450px] hover:bg-yellow-400 bg-yellow-300 rounded-[50%_50%_40%_40%] overflow-hidden flex justify-center items-center">
                     <img className="w-full h-full object-cover" src={img1} alt="FAQ" />
                 </div>
             </div>
 
             {/* FAQ Section */}
-            <div className="w-1/2">
+            <div className="lg:w-1/2">
                 {/* Text Section */}
                 <div className="mb-4">
                     <p className="text-[#5751e1] bg-blue-100 px-2 py-1 w-12 rounded-lg">
                         Faq’s
                     </p>
-                    <h1 className="text-3xl font-bold py-2">
+                    <h1 className="text-3xl lg:text-4xl font-bold py-2">
                         Start Learning From <br /> World’s Pro Instructors
                     </h1>
                     <p className="text-gray-500">
@@ -70,7 +70,7 @@ const FaqSection = () => {
                 ].map((faq, index) => (
                     <div key={index} className="border-b border-gray-300">
                         <div
-                            className={`flex items-center justify-between text-xl font-medium cursor-pointer p-2 ${
+                            className={`flex items-center justify-between text-xl lg:text-2xl font-medium cursor-pointer p-2 ${
                                 activeIndex === index ? "text-[#5751e1] underline" : "text-gray-500"
                             }`}
                             onClick={() => toggleFaq(index)}

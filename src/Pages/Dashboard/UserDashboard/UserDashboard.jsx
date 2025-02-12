@@ -35,6 +35,39 @@ const UserDashboard = () => {
               My Progress
             </NavLink>
           </li>
+          <li className="text-xl font-medium mb-6">
+            <NavLink 
+              to="myCourses" 
+              className={({ isActive }) => 
+                `block ${isActive ? 'text-indigo-200 w-[115px] border-b-2 border-b-indigo-400' : 'text-white'} 
+                hover:text-indigo-200 hover:w-[115px] hover:border-b-2 hover:border-b-indigo-400 transition duration-300`
+              }
+            >
+              My Courses
+            </NavLink>
+          </li>
+          <li className="text-xl font-medium mb-6">
+            <NavLink 
+              to="paymentHistory" 
+              className={({ isActive }) => 
+                `block ${isActive ? 'text-indigo-200 w-[160px] border-b-2 border-b-indigo-400' : 'text-white'} 
+                hover:text-indigo-200 hover:w-[160px] hover:border-b-2 hover:border-b-indigo-400 transition duration-300`
+              }
+            >
+              Payment History
+            </NavLink>
+          </li>
+          <li className="text-xl font-medium mb-6">
+            <NavLink 
+              to="reviewForm" 
+              className={({ isActive }) => 
+                `block ${isActive ? 'text-indigo-200 w-[130px] border-b-2 border-b-indigo-400' : 'text-white'} 
+                hover:text-indigo-200 hover:w-[130px] hover:border-b-2 hover:border-b-indigo-400 transition duration-300`
+              }
+            >
+              Review Form
+            </NavLink>
+          </li>
         </ul>
       </div>
 

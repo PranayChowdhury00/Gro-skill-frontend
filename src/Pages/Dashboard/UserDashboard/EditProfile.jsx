@@ -1,30 +1,68 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2"; // Import SweetAlert
 
 const EditProfile = () => {
   const { user } = useContext(AuthContext);
+  const [userDb, setUserDb] = useState([]);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [photoURL, setPhotoURL] = useState("");
   const navigate = useNavigate();
 
-  // Local state for form inputs
-  const [name, setName] = useState(user?.displayName || "");
-  const [email, setEmail] = useState(user?.email || "");
-  const [photoURL, setPhotoURL] = useState(user?.photoURL || "");
+  useEffect(() => {
+    if (user?.email) {
+      axios.get(`http://localhost:5000/user/${user.email}`)
+        .then(res => {
+          setUserDb(res.data); // Assuming res.data is an array
+          if (res.data.length > 0) {
+            const userData = res.data[0]; // Access the first object in the array
+            setName(userData.name || "");
+            setEmail(userData.email || "");
+            setPhotoURL(userData.photoURL || "");
+          }
+        })
+        .catch(err => {
+          console.error("Error fetching user data:", err.message);
+        });
+    }
+  }, [user?.email]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Basic validation
+  
     if (!name.trim() || !email.trim() || !photoURL.trim()) {
       alert("All fields are required!");
       return;
     }
-
-    // Here, you can add a function to update the user in your database
-    console.log("Updated Profile:", { name, email, photoURL });
-
-    // Redirect back to the User Profile page
-    navigate("/userProfile");
+  
+    const updatedUser = { name, email, photoURL };
+  
+    try {
+      const response = await fetch(`http://localhost:5000/user/${user?.email}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedUser),
+      });
+  
+      if (response.ok) {
+        // Show success message with SweetAlert
+        Swal.fire({
+          icon: 'success',
+          title: 'Profile updated successfully!',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      } else {
+        alert("Failed to update profile.");
+      }
+    } catch (error) {
+      console.error("Error updating profile:", error);
+    }
   };
 
   return (
@@ -40,7 +78,6 @@ const EditProfile = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
             />
           </div>
 
@@ -51,7 +88,6 @@ const EditProfile = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
             />
           </div>
 
@@ -62,7 +98,6 @@ const EditProfile = () => {
               value={photoURL}
               onChange={(e) => setPhotoURL(e.target.value)}
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
             />
           </div>
 

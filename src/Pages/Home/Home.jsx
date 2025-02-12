@@ -9,6 +9,7 @@ import SkilledIntroduce from './SkilledIntroduce/SkilledIntroduce';
 import AchievementsSection from './AchievementsSection/AchievementsSection ';
 import FaqSection from './FaqSection/FaqSection';
 import CommentSection from './CommentSection/CommentSection';
+import TestimonialPage from './TestimonialPage/TestimonialPage';
 
 const Home = () => {
     return (
@@ -23,6 +24,7 @@ const Home = () => {
             <AchievementsSection></AchievementsSection>
             <FaqSection></FaqSection>
             <CommentSection></CommentSection>
+            <TestimonialPage></TestimonialPage>
         </div>
     );
 };
