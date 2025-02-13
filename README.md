@@ -1,168 +1,96 @@
-Gro Skill
+# Gro Skill
 
-Gro Skill is a skill development platform that helps users learn and enhance their abilities through curated courses and interactive learning experiences. The system offers different dashboards for Users, Instructors, and Admins, each with role-based access to manage profiles, courses, and learning progress.
+**Gro Skill**  is a skill development platform where users can browse courses, enroll in training, and track their progress. The system provides different dashboards for Users, Instructors, and Admins with role-based access to features like managing profiles, courses, and payments.
 
-Table of Contents
+## Table of Contents
+- [Purpose](#purpose)
+- [Live URL](#live-url)
+- [Key Features](#key-features)
+- [Technologies Used](#technologies-used)
+- [Screenshots](#screenshots)
+- [Installation Instructions](#installation-instructions)
+- [Contributing](#contributing)
+- [License](#license)
 
-Purpose
+## Purpose
+The purpose of Gro Skill is to provide a user-friendly platform for skill development, course enrollment, and learning management. The platform allows users to access educational content, while instructors can manage their courses, and admins oversee the system. The application is built to be scalable, secure, and responsive.
 
-Live URL
+## Live URL
+[Visit Gro Skill](https://gro-skill.web.app/) 
 
-Key Features
+# Admin email: instructor@gamil.com
+# Admin password: instructor2580
 
-Technologies Used
+## Key Features
+- **User Authentication**: Secure login system with email/password authentication.
+- **Role-based Dashboards**: Separate dashboards for Users, Instructors, and Admins, each with customized access.
+- **Course Enrollmen**: Users can browse courses, check details, and enroll in their preferred training programs.
+- **Payment System**: user can track  payments, make  payments.
+- **Admin Features**: Admins can oversee users, instructors, payments, and courses.
+- **Search & Pagination**: Users can filter apartments based on rent range and location, with paginated results for easy navigation.
+- **Responsive UI**: Fully responsive and mobile-first design, optimized for desktop, tablet, and mobile devices.
+- **JWT Authentication**: Secure login with **JWT (JSON Web Tokens)** for token-based user authorization and access control.
+- **Admin Dashboard**: Admins can add, update, and remove course, manage users, and manage instructors.
 
-Screenshots
+## Technologies Used
+### Frontend
+- **React**: A JavaScript library for building user interfaces.
+- **React Router**: For handling dynamic routing and navigation.
+- **Tailwind CSS**: A utility-first CSS framework for custom, responsive designs.
 
-Installation Instructions
+### Backend
+- **Node.js**: JavaScript runtime for building server-side applications.
+- **Express.js**: Web application framework for Node.js, designed for building RESTful APIs.
+- **JWT**: For secure user authentication and token management.
 
-Contributing
+### Database
+- **MongoDB**: NoSQL database for storing user and apartment data.
 
-License
+### Authentication
+- **Firebase Authentication**: For handling email/password, Google, and GitHub authentication.
 
-Purpose
+### Payment Integration
+- Stripe
 
-The purpose of Gro Skill is to provide a user-friendly and interactive platform for individuals to upskill themselves efficiently. Users can enroll in courses, track their progress, and engage with learning materials, while instructors can create and manage courses. Admins oversee the entire system, ensuring smooth operations and content management.
+### NPM Packages
+- `react-router-dom`: For client-side routing and navigation.
+- `firebase`: Firebase authentication SDK for handling user login and registration.
+- `react-toastify`: For showing notifications, like success or error messages.
+- `axios`: For making HTTP requests to interact with the backend API.
+- `jwt-decode`: For decoding JWT tokens to retrieve user roles and permissions.
+- `react-slick`: For image carousels and sliders .
 
-Live URL[https://gro-skill.web.app/]
 
-Visit Gro Skill
+## Screenshots
+Here are some screenshots showcasing the core features of the project:
+## Home Page
+![Home Screenshot](https://raw.githubusercontent.com/PranayChowdhury00/Gro-skill-frontend/refs/heads/main/HomePageGrowSkill.png)
 
-Key Features
+### Courses
+![Course Screenshot](https://raw.githubusercontent.com/PranayChowdhury00/Gro-skill-frontend/refs/heads/main/coursesGroSkill.png)
 
-User Authentication: Secure login and registration using email/password and Google authentication.
+### User Dashboard
+![Member Dashboard Screenshot](https://raw.githubusercontent.com/PranayChowdhury00/Gro-skill-frontend/refs/heads/main/userDashbordGroSkill.png)
 
-Role-based Dashboards: Separate dashboards for Users, Instructors, and Admins, each with specialized functionalities.
+### Admin Dashboard
+![Admin Dashboard Screenshot](https://raw.githubusercontent.com/PranayChowdhury00/Gro-skill-frontend/refs/heads/main/adminDashboard.png)
+### Mobile View of Homepage
+![Instructors](https://raw.githubusercontent.com/PranayChowdhury00/Gro-skill-frontend/refs/heads/main/instructorGroSkill.png)
 
-Course Management: Users can browse, enroll, and track progress in various skill-based courses.
 
-Instructor Features: Instructors can create, update, and manage their courses with detailed descriptions and content.
 
-Admin Features: Admins have complete control over the platform, including managing users, instructors, and course approvals.
+## Contributing
+We welcome contributions to **Gro Skill**! If you have ideas for improvements or bug fixes, please follow these guidelines:
 
-Search & Filtering: Users can search for courses based on categories, skill levels, and keywords.
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them with descriptive messages.
+4. Push your changes to your forked repository.
+5. Submit a pull request with a detailed description of your changes.
 
-Responsive UI: The platform is optimized for desktops, tablets, and mobile devices.
+## License
+This project is licensed under the **Pranay Chowdhury**.
 
-JWT Authentication: Ensures secure access control with JSON Web Tokens.
+---
 
-Progress Tracking: Users can monitor their learning journey with progress indicators and completion badges.
-
-Technologies Used
-
-Frontend
-
-React: A JavaScript library for building user interfaces.
-
-React Router: For handling dynamic routing and navigation.
-
-Tailwind CSS: A utility-first CSS framework for fast and responsive design.
-
-Backend
-
-Node.js: A runtime environment for running JavaScript on the server.
-
-Express.js: A minimal web framework for building RESTful APIs.
-
-JWT: Used for secure authentication and user authorization.
-
-Database
-
-MongoDB: NoSQL database to store user, course, and progress data.
-
-Authentication
-
-Firebase Authentication: Provides secure login via email/password and Google authentication.
-
-NPM Packages
-
-react-router-dom: For navigation and routing.
-
-firebase: For authentication and user management.
-
-react-toastify: For displaying notifications like success or error messages.
-
-axios: For making API requests to the backend.
-
-jwt-decode: For handling JWT authentication.
-
-react-dropzone: For managing file uploads.
-
-(Add other relevant packages used in your project)
-
-Screenshots
-
-Home Page
-
-
-
-Course Dashboard
-
-
-
-Instructor Panel
-
-
-
-Admin Dashboard
-
-
-
-Installation Instructions
-
-To set up Gro Skill on your local machine, follow these steps:
-
-Clone the Repository:
-
-git clone https://github.com/YOUR-USERNAME/GroSkill.git
-
-Navigate to the Project Directory:
-
-cd GroSkill
-
-Install Backend Dependencies:
-
-cd backend
-npm install
-
-Install Frontend Dependencies:
-
-cd frontend
-npm install
-
-Set Up Environment Variables:
-
-Create .env files in both frontend and backend directories.
-
-Configure Firebase authentication, database connections, and JWT secrets.
-
-Run the Application:
-
-Backend:
-
-npm start
-
-Frontend:
-
-npm start
-
-Visit http://localhost:3000 to access the application locally.
-
-Contributing
-
-We welcome contributions to Gro Skill! Follow these steps to contribute:
-
-Fork the repository.
-
-Create a new branch for your feature or bug fix.
-
-Make your changes and commit with a descriptive message.
-
-Push your changes to your fork.
-
-Submit a pull request with a detailed description.
-
-License
-
-This project is licensed under the MIT License.
-
+Feel free to open an issue or submit a pull request if you have any questions or suggestions!
