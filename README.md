@@ -1,54 +1,106 @@
 Gro Skill
 
+Gro Skill is a skill development platform that helps users learn and enhance their abilities through curated courses and interactive learning experiences. The system offers different dashboards for Users, Instructors, and Admins, each with role-based access to manage profiles, courses, and learning progress.
 
+Table of Contents
 
-🚀 About the Project
+Purpose
 
-Gro Skill is an online learning platform where users can purchase courses, track their progress, and manage their profiles. It also features a powerful admin dashboard for managing users, courses, transactions, and instructor requests.
+Live URL
 
-🌟 Features
+Key Features
 
-User Features:
+Technologies Used
 
-🛒 Buy courses and track learning progress
+Screenshots
 
-📊 User dashboard for payment tracking and profile updates
+Installation Instructions
 
-💬 Leave comments that appear on the homepage
+Contributing
 
-🎓 Request to become an instructor
+License
 
-Admin Features:
+Purpose
 
-👥 Manage users (Promote, Delete, Update profiles)
+The purpose of Gro Skill is to provide a user-friendly and interactive platform for individuals to upskill themselves efficiently. Users can enroll in courses, track their progress, and engage with learning materials, while instructors can create and manage courses. Admins oversee the entire system, ensuring smooth operations and content management.
 
-📚 Add, Update, or Remove courses
+Live URL[https://gro-skill.web.app/]
 
-💳 View and manage transactions
+Visit Gro Skill
 
-✅ Accept or Reject instructor requests
+Key Features
 
-🛠️ Technologies Used
+User Authentication: Secure login and registration using email/password and Google authentication.
 
-Frontend: React.js, Tailwind CSS
+Role-based Dashboards: Separate dashboards for Users, Instructors, and Admins, each with specialized functionalities.
 
-Backend: Node.js, Express.js
+Course Management: Users can browse, enroll, and track progress in various skill-based courses.
 
-Database: MongoDB
+Instructor Features: Instructors can create, update, and manage their courses with detailed descriptions and content.
 
-Authentication: Firebase
+Admin Features: Admins have complete control over the platform, including managing users, instructors, and course approvals.
 
-State Management: React Context API
+Search & Filtering: Users can search for courses based on categories, skill levels, and keywords.
 
-UI Components: DaisyUI
+Responsive UI: The platform is optimized for desktops, tablets, and mobile devices.
 
-📸 Screenshots
+JWT Authentication: Ensures secure access control with JSON Web Tokens.
+
+Progress Tracking: Users can monitor their learning journey with progress indicators and completion badges.
+
+Technologies Used
+
+Frontend
+
+React: A JavaScript library for building user interfaces.
+
+React Router: For handling dynamic routing and navigation.
+
+Tailwind CSS: A utility-first CSS framework for fast and responsive design.
+
+Backend
+
+Node.js: A runtime environment for running JavaScript on the server.
+
+Express.js: A minimal web framework for building RESTful APIs.
+
+JWT: Used for secure authentication and user authorization.
+
+Database
+
+MongoDB: NoSQL database to store user, course, and progress data.
+
+Authentication
+
+Firebase Authentication: Provides secure login via email/password and Google authentication.
+
+NPM Packages
+
+react-router-dom: For navigation and routing.
+
+firebase: For authentication and user management.
+
+react-toastify: For displaying notifications like success or error messages.
+
+axios: For making API requests to the backend.
+
+jwt-decode: For handling JWT authentication.
+
+react-dropzone: For managing file uploads.
+
+(Add other relevant packages used in your project)
+
+Screenshots
 
 Home Page
 
 
 
-User Dashboard
+Course Dashboard
+
+
+
+Instructor Panel
 
 
 
@@ -56,43 +108,61 @@ Admin Dashboard
 
 
 
-🔧 Installation
+Installation Instructions
 
-Clone the repository:
+To set up Gro Skill on your local machine, follow these steps:
 
-git clone https://github.com/yourusername/gro-skill.git
-cd gro-skill
+Clone the Repository:
 
-Install dependencies:
+git clone https://github.com/YOUR-USERNAME/GroSkill.git
 
+Navigate to the Project Directory:
+
+cd GroSkill
+
+Install Backend Dependencies:
+
+cd backend
 npm install
 
-Start the development server:
+Install Frontend Dependencies:
+
+cd frontend
+npm install
+
+Set Up Environment Variables:
+
+Create .env files in both frontend and backend directories.
+
+Configure Firebase authentication, database connections, and JWT secrets.
+
+Run the Application:
+
+Backend:
 
 npm start
 
-For backend setup, navigate to the backend folder and run:
+Frontend:
 
-npm install
-npm run server
+npm start
 
-🚀 Deployment
+Visit http://localhost:3000 to access the application locally.
 
-Frontend: Vercel / Netlify
+Contributing
 
-Backend: Render / Heroku
+We welcome contributions to Gro Skill! Follow these steps to contribute:
 
-Database: MongoDB Atlas
+Fork the repository.
 
-📬 Contact
+Create a new branch for your feature or bug fix.
 
-For any queries or contributions, feel free to reach out:
+Make your changes and commit with a descriptive message.
 
-📧 Email: pranaychowdhury20@gmail.com
+Push your changes to your fork.
 
-🔗 GitHub
+Submit a pull request with a detailed description.
 
-📜 License
+License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
 
