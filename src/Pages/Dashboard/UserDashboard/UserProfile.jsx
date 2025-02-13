@@ -23,7 +23,7 @@ const UserProfile = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:5000/user/${user.email}`)
+        .get(`https://skill-gro-banckend.vercel.app/user/${user.email}`)
         .then((res) => setUserDb(res.data))
         .catch((err) => console.log(err.message));
     }

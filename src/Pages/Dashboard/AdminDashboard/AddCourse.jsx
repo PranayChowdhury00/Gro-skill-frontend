@@ -13,7 +13,7 @@ const AddCourse = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/addCourses", {
+      await axios.post("https://skill-gro-banckend.vercel.app/addCourses", {
         courseName,
         instructor,
         price: parseFloat(price), // Ensure price is a number

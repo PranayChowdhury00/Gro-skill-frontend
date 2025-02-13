@@ -11,7 +11,7 @@ const Cart = () => {
   // Fetch cart items from the backend
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/cartItem/${user.email}`)
+      .get(`https://skill-gro-banckend.vercel.app/cartItem/${user.email}`)
       .then((result) => {
         setItems(result.data);
       })
@@ -34,7 +34,7 @@ const Cart = () => {
       if (result.isConfirmed) {
         // Proceed with the deletion
         axios
-          .delete('http://localhost:5000/deleteCart', {
+          .delete('https://skill-gro-banckend.vercel.app/deleteCart', {
             data: { id } // Send the id in the request body as data
           })
           .then((response) => {

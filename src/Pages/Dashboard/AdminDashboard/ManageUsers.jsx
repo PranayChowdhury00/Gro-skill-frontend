@@ -7,7 +7,7 @@ const ManageUsers = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/user")
+      .get("https://skill-gro-banckend.vercel.app/user")
       .then((result) => {
         setUsers(result.data);
       })
@@ -21,7 +21,7 @@ const ManageUsers = () => {
 
   const makeAdmin = async (id) => {
     try {
-      const response = await axios.patch(`http://localhost:5000/makeAdmin/${id}`, {
+      const response = await axios.patch(`https://skill-gro-banckend.vercel.app/makeAdmin/${id}`, {
         userRole: "admin",
       });
       setUsers((prevUsers) =>
@@ -62,7 +62,7 @@ const ManageUsers = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:5000/deleteUser/${id}`);
+          await axios.delete(`https://skill-gro-banckend.vercel.app/deleteUser/${id}`);
           setUsers((prevUsers) => prevUsers.filter((user) => user._id !== id));
           // Success notification
           Swal.fire({

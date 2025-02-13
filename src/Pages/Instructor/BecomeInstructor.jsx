@@ -25,10 +25,10 @@ const handleChange = (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/applyInstructor",
+        "https://skill-gro-banckend.vercel.app/applyInstructor",
         formData 
       );
-  
+      
       if (response.data.success) {
         Swal.fire({ icon: "success", title: "Application Submitted", timer: 1500 });
       } else {

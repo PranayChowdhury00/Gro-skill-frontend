@@ -15,7 +15,7 @@ const Course = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:5000/user/${user.email}`) // Fetch user by email
+        .get(`https://skill-gro-banckend.vercel.app/user/${user.email}`) // Fetch user by email
         .then((res) => {
           setUserRole(res.data.userRole); // Set userRole
         })
@@ -25,7 +25,7 @@ const Course = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/courses")
+      .get("https://skill-gro-banckend.vercel.app/courses")
       .then((result) => {
         setCourses(result.data);
       })
@@ -39,7 +39,7 @@ const Course = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto mb-10 mt-5">
+    <div className="max-w-7xl mx-auto mb-10 mt-5 min-h-[calc(100vh-180px)]">
       <h1 className="text-3xl font-bold py-5 ">All Courses ({courses.length})</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

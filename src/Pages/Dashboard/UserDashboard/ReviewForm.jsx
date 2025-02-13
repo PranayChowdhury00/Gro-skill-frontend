@@ -22,7 +22,7 @@ const ReviewForm = () => {
     }
 
     // Make a POST request to add a review to the database
-    axios.post('http://localhost:5000/review', {
+    axios.post('https://skill-gro-banckend.vercel.app/review', {
       rating,
       reviewText,
       userEmail: user.email,      // Send the user's email

@@ -14,7 +14,7 @@ const Navbar = () => {
   // Fetch all users and find the logged-in user's role
   useEffect(() => {
     axios
-      .get("http://localhost:5000/user") // ✅ Get all users
+      .get("https://skill-gro-banckend.vercel.app/user") // ✅ Get all users
       .then((res) => {
         const loggedInUser = res.data.find((u) => u.email === user?.email); // ✅ Find logged-in user
         setIsAdmin(loggedInUser?.userRole === "admin"); // ✅ Check if they are an admin
@@ -28,7 +28,7 @@ const Navbar = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:5000/cartCount/${user.email}`)
+        .get(`https://skill-gro-banckend.vercel.app/cartCount/${user.email}`)
         .then((res) => setCartCount(res.data.count))
         .catch((error) => console.error("Error fetching cart count:", error));
     }

@@ -14,9 +14,10 @@ const Instructors = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:5000/user/${user.email}`) // Fetch user by email
+        .get(`https://skill-gro-banckend.vercel.app/user/${user.email}`) // Fetch user by email
         .then((res) => {
           setUserRole(res.data.userRole); // Set userRole
+          // console.log(res.data)
         })
         .catch((err) => console.error("Error fetching user:", err.message));
     }
@@ -25,7 +26,7 @@ const Instructors = () => {
   // Fetch instructors (excluding pending status)
   useEffect(() => {
     axios
-      .get("http://localhost:5000/getInstructor")
+      .get("https://skill-gro-banckend.vercel.app/getInstructor")
       .then((result) => {
         const filteredInstructors = result.data.filter(
           (instructor) => instructor.status !== "pending"
@@ -36,7 +37,7 @@ const Instructors = () => {
         console.error("Error fetching instructors:", err.message);
       });
   }, []);
-
+console.log(userRole)
   return (
     <div>
       <div className="flex flex-wrap justify-center gap-8 p-10 bg-gray-100">

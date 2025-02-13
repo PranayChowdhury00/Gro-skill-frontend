@@ -8,7 +8,7 @@ const PaymentHistory = () => {
 
     useEffect(() => {
         if (user?.email) {
-            axios.get(`http://localhost:5000/payment/${user.email}`)
+            axios.get(`https://skill-gro-banckend.vercel.app/payment/${user.email}`)
                 .then(res => {
                     setPayments(res.data);
                 })

@@ -6,7 +6,7 @@ const AdminProfile = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/user")
+      .get("https://skill-gro-banckend.vercel.app/user")
       .then((result) => {
         const adminUser = result.data.find((user) => user.userRole === "admin");
         setAdmin(adminUser);

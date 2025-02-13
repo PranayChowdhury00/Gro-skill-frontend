@@ -7,7 +7,7 @@ const TestimonialPage = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/review") // Replace with your API endpoint
+      .get("https://skill-gro-banckend.vercel.app/review") // Replace with your API endpoint
       .then((response) => setReviews(response.data))
       .catch((error) => console.error("Error fetching reviews:", error));
   }, []);

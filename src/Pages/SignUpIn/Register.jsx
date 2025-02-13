@@ -42,7 +42,7 @@ const Register = () => {
                     })
                     .then(() => {
                         // Store user in the database
-                        fetch('http://localhost:5000/registerUser', {
+                        fetch('https://skill-gro-banckend.vercel.app/registerUser', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ email, userName: name,photoUrl,userRole:'user' })
@@ -86,7 +86,7 @@ const Register = () => {
                     const { displayName, email } = result.user;
     
                     // Store Google user in the database
-                    fetch('http://localhost:5000/googleUser', {
+                    fetch('https://skill-gro-banckend.vercel.app/googleUser', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ email, userName: displayName })

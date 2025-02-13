@@ -21,7 +21,7 @@ const Transactions = () => {
   useEffect(() => {
     const fetchPayments = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/allPayment');
+        const response = await axios.get('https://skill-gro-banckend.vercel.app/allPayment');
         const transactions = response.data;
 
         setPayment(transactions);

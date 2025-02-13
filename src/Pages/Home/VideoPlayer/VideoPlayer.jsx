@@ -53,7 +53,7 @@ const VideoPlayer = () => {
   // Save Progress to Backend
   const saveProgress = async (videoId) => {
     try {
-      await axios.post("http://localhost:5000/api/saveProgress", {
+      await axios.post("https://skill-gro-banckend.vercel.app/api/saveProgress", {
         userName: user?.displayName,
         userEmail:user?.email,
         videoId: videoId,

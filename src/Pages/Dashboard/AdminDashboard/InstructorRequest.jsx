@@ -7,7 +7,7 @@ const InstructorRequest = () => {
   const [requestInstructor, setRequestInstructor] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/getInstructor")
+      .get("https://skill-gro-banckend.vercel.app/getInstructor")
       .then((result) => {
         setRequestInstructor(result.data);
       })
@@ -33,7 +33,7 @@ const deleteInstructorRequest = (id) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/deleteInstructorRequest/${id}`)
+          .delete(`https://skill-gro-banckend.vercel.app/deleteInstructorRequest/${id}`)
           .then(() => {
             Swal.fire({
               title: "Deleted!",
@@ -56,7 +56,7 @@ const deleteInstructorRequest = (id) => {
   };
   const handelUpdateTheRole = (id) => {
     axios
-      .patch(`http://localhost:5000/updateTheUsrRole/${id}`, { status: "confirm" })
+      .patch(`https://skill-gro-banckend.vercel.app/updateTheUsrRole/${id}`, { status: "confirm" })
       .then((response) => {
         if (response.data.success) {
           Swal.fire({

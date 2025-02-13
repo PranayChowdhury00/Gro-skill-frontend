@@ -15,7 +15,7 @@ const CourseDetails = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/courses")
+      .get("https://skill-gro-banckend.vercel.app/courses")
       .then((result) => {
         setCourses(result.data);
       })
@@ -39,7 +39,7 @@ const CourseDetails = () => {
     if (!singleCourse) return;
 
     axios
-      .post("http://localhost:5000/addToCart", cartData)
+      .post("https://skill-gro-banckend.vercel.app/addToCart", cartData)
       .then(() => {
         Swal.fire({
           position: "top-end",

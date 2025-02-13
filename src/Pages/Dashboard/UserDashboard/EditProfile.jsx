@@ -14,7 +14,7 @@ const EditProfile = () => {
 
   useEffect(() => {
     if (user?.email) {
-      axios.get(`http://localhost:5000/user/${user.email}`)
+      axios.get(`https://skill-gro-banckend.vercel.app/user/${user.email}`)
         .then(res => {
           setUserDb(res.data); // Assuming res.data is an array
           if (res.data.length > 0) {
@@ -41,7 +41,7 @@ const EditProfile = () => {
     const updatedUser = { name, email, photoURL };
   
     try {
-      const response = await fetch(`http://localhost:5000/user/${user?.email}`, {
+      const response = await fetch(`https://skill-gro-banckend.vercel.app/user/${user?.email}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

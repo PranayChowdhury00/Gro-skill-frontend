@@ -10,7 +10,7 @@ const CommentSection = () => {
   // ✅ Fetch Comments from Server
   const fetchComments = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/getComment?page=${page}&limit=${limit}`);
+      const response = await axios.get(`https://skill-gro-banckend.vercel.app/getComment?page=${page}&limit=${limit}`);
       setComments(response.data.comments);
       setTotalComments(response.data.totalComments);
     } catch (error) {
@@ -27,7 +27,7 @@ const CommentSection = () => {
     const data = { comment, name, email };
 
     try {
-      await axios.post("http://localhost:5000/doComment", data);
+      await axios.post("https://skill-gro-banckend.vercel.app/doComment", data);
       e.target.reset(); // Clear the form
       fetchComments(); // Refresh comments
     } catch (error) {

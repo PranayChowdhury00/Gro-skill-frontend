@@ -17,7 +17,7 @@ const CheckoutForm = () => {
     const fetchCart = async () => {
       try {
         if (user?.email) {
-          const result = await axios.get(`http://localhost:5000/cartItem/${user.email}`);
+          const result = await axios.get(`https://skill-gro-banckend.vercel.app/cartItem/${user.email}`);
           setCartUser(result.data);
         }
       } catch (err) {
@@ -38,7 +38,7 @@ const CheckoutForm = () => {
     const createPaymentIntent = async () => {
       try {
         if (total > 0) {
-          const res = await axios.post('http://localhost:5000/create-payment-intent', { price: total });
+          const res = await axios.post('https://skill-gro-banckend.vercel.app/create-payment-intent', { price: total });
           setClientSecret(res.data.clientSecret);
         }
       } catch (err) {
@@ -107,7 +107,7 @@ const CheckoutForm = () => {
         };
 
         // Save payment details
-        axios.post('http://localhost:5000/save-payment', paymentData)
+        axios.post('https://skill-gro-banckend.vercel.app/save-payment', paymentData)
           .then((res) => {
             console.log('Payment saved:', res.data);
             Swal.fire({
@@ -117,7 +117,7 @@ const CheckoutForm = () => {
             });
 
             // Remove cart items after successful payment
-            axios.post('http://localhost:5000/remove-cart-items', { email: user?.email })
+            axios.post('https://skill-gro-banckend.vercel.app/remove-cart-items', { email: user?.email })
               .then((response) => {
                 console.log('Cart items removed:', response.data);
 

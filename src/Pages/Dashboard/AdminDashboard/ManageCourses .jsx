@@ -18,7 +18,7 @@ const ManageCourses = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/courses")
+      .get("https://skill-gro-banckend.vercel.app/courses")
       .then((result) => {
         setCourses(result.data);
       })
@@ -59,7 +59,7 @@ const ManageCourses = () => {
   
     try {
       const response = await axios.patch(
-        `http://localhost:5000/updateCourse/${selectedCourse}`,
+        `https://skill-gro-banckend.vercel.app/updateCourse/${selectedCourse}`,
         updatedData
       );
   
@@ -93,7 +93,7 @@ const ManageCourses = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/deleteCourse/${courseId}`)
+          .delete(`https://skill-gro-banckend.vercel.app/deleteCourse/${courseId}`)
           .then((response) => {
             setCourses(courses.filter((course) => course._id !== courseId));
             Swal.fire("Deleted!", "The course has been deleted.", "success");

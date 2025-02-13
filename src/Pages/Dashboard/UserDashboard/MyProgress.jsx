@@ -14,7 +14,7 @@ const MyProgress = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:5000/api/getVideoProgress/${user?.email}`)
+        .get(`https://skill-gro-banckend.vercel.app/api/getVideoProgress/${user?.email}`)
         .then((result) => {
           setData(result.data);
         })
